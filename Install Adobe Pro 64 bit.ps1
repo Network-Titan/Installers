@@ -15,6 +15,6 @@ $ExtractFiles = $ExtractShell.Namespace($DownloadZipFile).Items()
 $ExtractShell.NameSpace($ExtractPath).CopyHere($ExtractFiles) 
 Start-Process $ExtractPath -wait
 
-Start-Process "C:\Powershell\Zip\UnZipFiles\Adobe Acrobat\setup.exe" -force -wait
+Start-Process "C:\Powershell\Zip\UnZipFiles\Adobe Acrobat\setup.exe" -ArgumentList "/sAll /rs /rps /msi /norestart /quiet EULA_ACCEPT=YES" -WorkingDirectory "C:\Powershell" -wait
 
 Set-ExecutionPolicy Undefined -Force
