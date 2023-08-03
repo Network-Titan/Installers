@@ -1,11 +1,8 @@
 ﻿Set-ExecutionPolicy Undrestricted -Force
 
-New-Item -Path "C:\" -Name "NetworkTitan" -Item "directory"
-New-Item -Path "C:\NetworkTitan\" -Name "Adobe32" -Item "directory"
-New-Item -Path "C:\NetworkTitan\Adobe32\" -Name "PowerShell" -Item "directory"
-New-Item -Path "C:\NetworkTitan\Adobe32\PowerShell" -Name "Zip" -Item "directory"
-New-Item -Path "C:\NetworkTitan\Adobe32\PowerShell\Zip" -Name "ZipFile" -Item "directory"
-New-Item -Path "C:\NetworkTitan\Adobe32\PowerShell\Zip" -Name "UnZipFiles" -Item "directory"
+New-Item -Path "C:\NetworkTitan\Adobe32\Powershell\Zip\ZipFiles" -ItemType Directory -Force
+
+New-Item -Path "C:\NetworkTitan\Adobe32\Powershell\Zip\UnZipFiles" -ItemType Directory -Force
 
 
 $Url = "https://trials.adobe.com/AdobeProducts/APRO/Acrobat_HelpX/win32/Acrobat_DC_Web_WWMUI.zip"
