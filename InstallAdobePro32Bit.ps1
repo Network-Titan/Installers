@@ -1,19 +1,18 @@
-﻿Set-ExecutionPolicy Undrestricted -Force
+﻿# Working directory to download installer, unzip it, and run from here
+$NTAppPath = "C:\NetworkTitan\Acrobat32"
 
-New-Item -Path "C:\NetworkTitan\Adobe32\Powershell\Zip\ZipFiles" -ItemType Directory -Force
-
-New-Item -Path "C:\NetworkTitan\Adobe32\Powershell\Zip\UnZipFiles" -ItemType Directory -Force
-
-
+# Path to Acrobat Pro installer
 $Url = "https://trials.adobe.com/AdobeProducts/APRO/Acrobat_HelpX/win32/Acrobat_DC_Web_WWMUI.zip"
-$DownloadZipFile = "C:\NetworkTitan\Adobe32\PowerShell\Zip\ZipFile\" + $(Split-Path -Path $Url -Leaf)
-$ExtractPath = "C:\NetworkTitan\Adobe32\PowerShell\Zip\UnZipFiles\"
+
+# Download the file to our working directory
+$DownloadZipFile = $NTAppPath + "\" + $(Split-Path -Path $Url -Leaf)
 Invoke-WebRequest -Uri $Url -OutFile $DownloadZipFile
-$ExtractShell = New-Object -ComObject Shell.Application 
-$ExtractFiles = $ExtractShell.Namespace($DownloadZipFile).Items() 
-$ExtractShell.NameSpace($ExtractPath).CopyHere($ExtractFiles) 
-Start-Process $ExtractPath -wait
 
-Start-Process "C:\NetworkTitan\Adobe32\Powershell\Zip\UnZipFiles\Adobe Acrobat\setup.exe" -ArgumentList "/sAll /rs /rps /msi /norestart /quiet EULA_ACCEPT=YES" -WorkingDirectory "C:\NetworkTitan\Adobe32\Powershell" -wait
+# Extract ZIP file
+Expand-Archive -Path $DownloadZipFile -DestinationPath $NTAppPath
 
-Set-ExecutionPolicy Undefined -Force
+# Run silent installation
+Start-Process "$($NTAppPath)\Adobe Acrobat\setup.exe" -ArgumentList "/sAll /rs /rps /msi /norestart /quiet EULA_ACCEPT=YES" -WorkingDirectory $NTAppPath -wait
+
+# Delete working directory and files to save disk space
+Remove-Item $NTAppPath -Recurse -Force
