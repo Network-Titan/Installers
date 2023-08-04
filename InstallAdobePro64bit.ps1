@@ -1,5 +1,7 @@
 ﻿# Working directory to download installer, unzip it, and run from here
 $NTAppPath = "C:\NetworkTitan\Acrobat64"
+New-Item -Path $NTAppPath -ItemType Directory -Force
+
 
 # Path to Acrobat Pro installer
 $Url = "https://trials.adobe.com/AdobeProducts/APRO/Acrobat_HelpX/win32/Acrobat_DC_Web_x64_WWMUI.zip"
