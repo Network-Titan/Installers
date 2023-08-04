@@ -1,7 +1,7 @@
 ﻿$NTAppPath = "C:\NetworkTitan\Acrobat64"
 
-$ZipPath = "$($NTAppPath)\Zip\ZipFiles"
-$UnZipPath = "$($NTAppPath)\Zip\UnZipFiles"
+$ZipPath = "$($NTAppPath)\Zip\ZipFiles\"
+$UnZipPath = "$($NTAppPath)\Zip\UnZipFiles\"
 
 New-Item -Path $ZipPath -ItemType Directory -Force
 New-Item -Path $UnZipPath -ItemType Directory -Force
