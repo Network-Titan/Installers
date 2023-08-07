@@ -2,6 +2,7 @@
     [string]$AppName #Name of the App being installed, so the install script can be downloaded into this folder. Don't use spaces.
 )
 
+Start-Transcript
 # Check if Choco is installed already. If not, install it.
 $testchoco = powershell choco -v
 if(-not($testchoco)){
@@ -11,3 +12,5 @@ if(-not($testchoco)){
 
 # Use choco to install the selected app.
 choco install $AppName --force -y
+
+Stop-Transcript
