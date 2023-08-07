@@ -2,8 +2,9 @@
     [string] $AppName, # Name of the App being installed, so the install script can be downloaded into this folder. Don't use spaces.
     [switch] $Uninstall # Include this parameter to uninstall this app
 )
+$Logfile = "C:\NetworkTitan\$AppName.log"
+Start-Transcript -Append $Logfile
 
-Start-Transcript
 # Check if Choco is installed already. If not, install it.
 $testchoco = powershell choco -v
 if(-not($testchoco)){
