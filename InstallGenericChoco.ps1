@@ -1,5 +1,6 @@
 ﻿param(
-    [string]$AppName #Name of the App being installed, so the install script can be downloaded into this folder. Don't use spaces.
+    [string] $AppName, # Name of the App being installed, so the install script can be downloaded into this folder. Don't use spaces.
+    [switch] $Uninstall # Include this parameter to uninstall this app
 )
 
 Start-Transcript
@@ -10,7 +11,14 @@ if(-not($testchoco)){
     Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 }
 
-# Use choco to install the selected app.
-choco install $AppName --force -y
+if ($Uninstall){
+    # If Uninstall was set, remove app
+    choco uninstall $AppName --force -y
+}
+Else{
+    # If Uninstall is not set, use choco to install the selected app.
+    choco install $AppName --force -y
+}
+
 
 Stop-Transcript
