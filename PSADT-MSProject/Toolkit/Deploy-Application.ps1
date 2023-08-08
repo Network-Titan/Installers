@@ -206,7 +206,7 @@ Try {
         }
 
         ## <Perform Installation tasks here>
-        Execute-Process -Path "$dirFiles\setup.exe" -Parameters "/CONFIGURE Canary-Project.xml"
+        Execute-Process -Path "$dirFiles\setup.exe" -Parameters "/CONFIGURE MSProject.xml"
 
         ##*===============================================
         ##* POST-INSTALLATION
