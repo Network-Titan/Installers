@@ -1,0 +1,9 @@
+<Configuration ID="3561a5bf-cf61-4fbe-ac8f-826b5237a52e">
+  <Add OfficeClientEdition="64" Channel="MonthlyEnterprise">
+    <Product ID="ProjectProRetail">
+      <Language ID="en-us" />
+    </Product>
+  </Add>
+  <Updates Enabled="TRUE" />
+  <Display Level="None" AcceptEULA="TRUE" />
+</Configuration>
