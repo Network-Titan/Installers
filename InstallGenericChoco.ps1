@@ -1,9 +1,16 @@
 ﻿param(
     [string] $AppName, # Name of the App being installed, so the install script can be downloaded into this folder. Don't use spaces.
+    [string] $ExtraParameters, # Optionally, include any parameters that should be passed to Chocolatey. These are passed directly, read the warning on Choco website
     [switch] $Uninstall # Include this parameter to uninstall this app
 )
 $Logfile = "C:\NetworkTitan\$AppName.log"
 Start-Transcript -Append $Logfile
+
+if ($ExtraParameters){
+$ExtraParameters = @"
+--package-parameters="$($ExtraParameters)"
+"@
+}
 
 # Check if Choco is installed already. If not, install it.
 $testchoco = powershell choco -v
@@ -17,7 +24,7 @@ if ($Uninstall){
 }
 Else{
     # If Uninstall is not set, use choco to install the selected app.
-    choco install $AppName --force -y
+    choco install $AppName $ExtraParameters --force -y
 }
 
 
