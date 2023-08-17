@@ -24,7 +24,7 @@ if ($Uninstall){
 }
 Else{
     # If Uninstall is not set, use choco to install the selected app.
-    Write-Host "choco install $AppName $ExtraParameters --force -y"
+    choco install $AppName $ExtraParameters --force -y
 }
 
 

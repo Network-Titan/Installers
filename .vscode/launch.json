@@ -1,0 +1,15 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "PowerShell: Launch Current File",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${file}",
+            "args": ["-AppName \"duo-authentication\" -ExtraParameters \"/IKEY:DI75J8G6A8E1YNQSJD1F /SKEY:RUS7fNS05bWoHFjGIC38b8VRMzJDHOpsH3HfNL5Z /HOST:api-88c703df.duosecurity.com /AUTOPUSH:#1 /FAILOPEN:#0 /RDPONLY:#0 /ENABLEOFFLINE:#1\""]
+        }
+    ]
+}
