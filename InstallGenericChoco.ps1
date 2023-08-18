@@ -7,8 +7,9 @@ $Logfile = "C:\NetworkTitan\$AppName.log"
 Start-Transcript -Append $Logfile
 
 if ($ExtraParameters){
+$DecodedParameters = [System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String($ExtraParameters))
 $ExtraParameters = @"
---package-parameters="$($ExtraParameters)"
+--package-parameters="$($DecodedParameters)"
 "@
 }
 
