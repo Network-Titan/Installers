@@ -13,6 +13,7 @@ $ExtraParameters = @"
 "@
 }
 
+
 # Check if Choco is installed already. If not, install it.
 $testchoco = powershell choco -v
 if(-not($testchoco)){
@@ -25,7 +26,7 @@ if ($Uninstall){
 }
 Else{
     # If Uninstall is not set, use choco to install the selected app.
-    choco install $AppName $ExtraParameters --force -y
+    choco install --debug --verbose $AppName $ExtraParameters --force -y
 }
 
 
