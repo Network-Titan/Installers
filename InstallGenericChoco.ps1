@@ -26,7 +26,7 @@ if ($Uninstall){
 }
 Else{
     # If Uninstall is not set, use choco to install the selected app.
-    choco install --debug --verbose $AppName $ExtraParameters --force -y
+    choco install --debug --verbose $AppName "$($ExtraParameters)" --force -y
 }
 
 
