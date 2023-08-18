@@ -9,7 +9,7 @@ Start-Transcript -Append $Logfile
 if ($ExtraParameters){
 $DecodedParameters = [System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String($ExtraParameters))
 $ExtraParameters = @"
---package-parameters="$($DecodedParameters)"
+--package-parameters="`"$($DecodedParameters)`""
 "@
 }
 
@@ -26,7 +26,7 @@ if ($Uninstall){
 }
 Else{
     # If Uninstall is not set, use choco to install the selected app.
-    choco install --debug --verbose $AppName "$($ExtraParameters)" --force -y
+    choco install --debug --verbose $AppName $ExtraParameters --force -y
 }
 
 
