@@ -8,9 +8,7 @@ Start-Transcript -Append $Logfile
 
 if ($ExtraParameters){
 $DecodedParameters = [System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String($ExtraParameters))
-$ExtraParameters = @"
---package-parameters="`"$($DecodedParameters)`""
-"@
+$ExtraParameters = "--package-parameters=`"$($DecodedParameters)`""
 }
 
 
