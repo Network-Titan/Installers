@@ -10,7 +10,7 @@ $installerPath = $NTAppPath + "\RingCentral-x64.msi"
 # Download the MSI installer silently
 Invoke-WebRequest -Uri $downloadUrl -OutFile $installerPath
 
-# Install RingCentral Meetings silently
+# Install RingCentral silently
 Start-Process -FilePath "msiexec.exe" -ArgumentList "/i `"$installerPath`" /qn" -Wait
 
 # Clean up the downloaded installer
